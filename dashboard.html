@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Walmart Sales Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { background: #0d0f24; font-family: Arial, sans-serif; color: white; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #4da6ff; margin-bottom: 30px; }
+        .kpi-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+        .kpi { background: #1a1c3a; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 0 10px rgba(77, 166, 255, 0.5); }
+        .kpi h2 { font-size: 18px; margin-bottom: 10px; }
+        .kpi p { font-size: 20px; font-weight: bold; }
+        .charts-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .chart { background: #1a1c3a; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(77, 166, 255, 0.5); }
+        .chart h3 { margin-bottom: 10px; color: #4da6ff; }
+    </style>
+</head>
+<body>
+    <h1>Walmart Sales Dashboard</h1>
+
+    <div class="kpi-container">
+        <div class="kpi"><h2>Total Sales</h2><p>{{ "{:,.2f}".format(total_sales) }}</p></div>
+        <div class="kpi"><h2>Total Stores</h2><p>{{ total_orders }}</p></div>
+        <div class="kpi"><h2>Avg Order Value</h2><p>{{ "{:,.2f}".format(avg_order_value) }}</p></div>
+        <div class="kpi"><h2>Holiday Sales</h2><p>{{ "{:,.2f}".format(holiday_sales) }}</p></div>
+    </div>
+
+    <div class="charts-container">
+        <div class="chart"><h3>Monthly Sales</h3>{{ month_chart | safe }}</div>
+        <div class="chart"><h3>Sales by Store</h3>{{ store_chart | safe }}</div>
+        <div class="chart"><h3>Holiday vs Non-Holiday Sales</h3>{{ holiday_chart | safe }}</div>
+        <div class="chart"><h3>Sales vs Temperature</h3>{{ temp_chart | safe }}</div>
+    </div>
+</body>
+</html>
