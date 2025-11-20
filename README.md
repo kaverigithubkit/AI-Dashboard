@@ -56,7 +56,3 @@ Future Enhancements:
 - Export charts
 - Cloud deployment
 
-Author:
-Your Name
-Your Email
-LinkedIn Profile Link
